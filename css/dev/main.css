@@ -297,6 +297,34 @@ body {
   color: var(--color-primary);
 }
 
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gallery__photo {
+  width: 100%;
+  display: block;
+}
+
+.overview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: .5rem 2rem;
+}
+
+.overview__stars {
+  margin-right: auto;
+}
+
+.overview__icon--star, .overview__icon--location {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: var(--color-primary);
+}
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;

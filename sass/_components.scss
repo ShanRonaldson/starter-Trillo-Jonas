@@ -225,13 +225,81 @@
 //GALLERY
 
 .gallery{
+  display: flex;
 
   &__item{
 
   }
 
   &__photo{
+    width: 100%;
+    display: block;
+  }
+}
+
+
+///////////////////////////////////////
+//GALLERY
+
+.overview{
+
+  display: flex;
+  
+  margin: .5rem 2rem;
+
+  &__heading{
+
+  }
+
+  &__stars{
+    margin-right: auto; //sets it so there is space between it and other elements
+  }
+
+  &__icon{
+
+    &--star,
+    &--location{
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: var(--color-primary);
+
+    }
+
+  
+
+    &--star{
+
+    }
+
+    &--location{
+
+    }
+
+  }
+
+  &__location{
+  
+
+  }
+
+  &__rating{
+
+    &--average{
+
+    }
+
+    &--votes{
+
+    }
 
   }
 }
 
+
+
+///////////////////////////////////////
+//Inline button
+
+.btn-inline{
+
+}
