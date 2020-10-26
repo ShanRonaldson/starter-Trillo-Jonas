@@ -25,9 +25,15 @@
   background-color: var(--color-grey-dark-1);
 
   flex: 0 0 18%; //flex: flex-grow (0=dont grow) flex-shrink (0=dont shrink) flex-basis (keep at this size always)
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: var(--color-white);
   flex: 1;
+
+  height: 50rem;
 }

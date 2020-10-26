@@ -68,7 +68,6 @@
 //USER NAVIGATION
 
 .user-nav {
-
   align-self: stretch;
 
   display: flex;
@@ -96,12 +95,11 @@
     width: 2.25rem;
     align-items: center;
     fill: var(--color-grey-dark-2);
- 
   }
 
   &__notification {
     color: var(--color-white);
-    font-size: .8rem;
+    font-size: 0.8rem;
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
@@ -116,9 +114,6 @@
     align-items: center;
   }
 
-  &__user {
-  }
-
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -130,3 +125,113 @@
     font-size: 1.3rem;
   }
 }
+
+///////////////////////////////////////
+//SIDE NAVIGATION
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style-type: none;
+  margin-top: 3.5rem;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__item {
+    position: relative;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: var(--color-primary);
+      transform: scaleY(0);
+      transition: transform 0.2s, 
+                  width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+                  background-color 0.1s;
+      //time it takes 1st number, delay is 2nd number
+    }
+
+    &:hover::before,
+    &--active::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+
+    &:active::before {
+      background-color: var(--color-primary-light);
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: var(--color-grey-light-1);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 1.5rem 3rem;
+      position: relative;
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; //color of parent element
+  }
+}
+
+///////////////////////////////////////
+//COPYRIGHT TEXT
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  align-self: center;
+  text-align: justify;
+  padding: 2.5rem;
+
+  &__link {
+    &:link,
+    &:visited {
+      color: var(--color-grey-light-4);
+      font-size: 1.2rem;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+///////////////////////////////////////
+//GALLERY
+
+.gallery{
+
+  &__item{
+
+  }
+
+  &__photo{
+
+  }
+}
+
