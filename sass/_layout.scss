@@ -36,16 +36,15 @@
   flex: 1;
 }
 
-
-.detail{
+.detail {
   display: flex;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
-  border-bottom:  var(--line);;
+  border-bottom: var(--line);
+  font-size: 1.4rem;
 }
 
-.description{
-  font-size: 1.4rem;
+.description {
   background-color: var(--color-white);
   box-shadow: var(--shadow-light);
   padding: 3rem;
@@ -53,7 +52,9 @@
   margin-right: 4.5rem;
 }
 
-.user-reviews{
-background-color: rebeccapurple;
-flex: 1;
+.user-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
 }
