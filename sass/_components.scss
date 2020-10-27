@@ -135,9 +135,13 @@
   margin-top: 3.5rem;
 
   display: flex;
-
   flex-direction: column;
   align-items: flex-start;
+
+  @media screen and (max-width: $bp-medium) {
+    flex-direction: row;
+    margin: 0;
+  }
 
   &__item {
     position: relative;
@@ -145,6 +149,14 @@
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      flex: 1;
     }
 
     &::before {
@@ -185,6 +197,16 @@
 
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: $bp-medium) {
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      @media screen and (max-width: $bp-small) {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem;
+      }
     }
   }
 
@@ -193,6 +215,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; //color of parent element
+
+    @media screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -205,6 +234,10 @@
   align-self: center;
   text-align: justify;
   padding: 2.5rem;
+
+  @media screen and (max-width: $bp-medium) {
+    display: none;
+  }
 
   &__link {
     &:link,
@@ -247,6 +280,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -284,14 +322,26 @@
     justify-content: center;
     flex-direction: column;
 
+    @media screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
     &--average {
       font-size: 2.25rem;
       font-weight: 300;
+
+      @media screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
 
     &--votes {
       font-size: 0.8rem;
       text-transform: uppercase;
+
+      @media screen and (max-width: $bp-small) {
+        font-size: .5rem;
+      }
     }
   }
 }
@@ -331,16 +381,16 @@
 
 @keyframes pulsate {
   0% {
-    transform: scale(1);
+    transform: translateZ(0);
     box-shadow: none;
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 0 1rem 4rem #00000025;
   }
   100% {
-    transform: scale(1);
+    transform: translateZ(0);
     box-shadow: none;
   }
 }
@@ -406,6 +456,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -414,7 +468,7 @@
     border: 3px solid var(--color-white);
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -429,6 +483,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &::before {
     content: "\201C";
@@ -495,10 +554,80 @@
   padding: 3.5rem 0;
   text-align: center;
 
+  @media screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+  }
+}
+
+///////////////////////////////////////
+// CALL TO ACTION BUTTON
+
+.btn {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  font-weight: 300;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 100px;
+
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  backface-visibility: hidden;
+
+  & > * {
+    display: inline-block;
+
+    height: 100%;
+    width: 100%;
+
+    transition: all 0.2s cubic-bezier(0, 0.49, 0.99, -0.03);
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    padding: 2rem 0;
+
+    left: 0;
+
+    top: -100%;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
